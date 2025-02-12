@@ -14,7 +14,9 @@ const WatchVideoUploader = () => {
   useEffect(() => {
     const fetchVideo = async () => {
       try {
-        const response = await axiosInstance.get(`https://project-backend-hosting.vercel.app/Video/videos/${id}`);
+        const response = await axiosInstance.get(
+          `https://project-backend-hosting.onrender.com/Video/videos/${id}`
+        );
         setVideo(response.data);
       } catch (err) {
         console.error("Error fetching video:", err);
@@ -35,20 +37,21 @@ const WatchVideoUploader = () => {
 
   return (
     <>
-    <VideodisplayNavbarUploader/>
-    <div className="p-6 max-w-3xl mx-auto mt-8">
-      <h1 className="text-3xl font-bold mb-4 text-center text-white">{video.title}</h1>
-      <video
-        controls
-        src={video.videoUrl}
-        className="w-full h-auto rounded-lg shadow-lg"
-      />
-      <p className="text-gray-400 mt-4">{video.description}</p>
-      <p className="text-blue-400 mt-2 text-uppercase">{video.genre}</p>
-      <CommentForUploader/>
-    </div>
+      <VideodisplayNavbarUploader />
+      <div className="p-6 max-w-3xl mx-auto mt-8">
+        <h1 className="text-3xl font-bold mb-4 text-center text-white">
+          {video.title}
+        </h1>
+        <video
+          controls
+          src={video.videoUrl}
+          className="w-full h-auto rounded-lg shadow-lg"
+        />
+        <p className="text-gray-400 mt-4">{video.description}</p>
+        <p className="text-blue-400 mt-2 text-uppercase">{video.genre}</p>
+        <CommentForUploader />
+      </div>
     </>
-    
   );
 };
 

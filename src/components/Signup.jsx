@@ -49,7 +49,10 @@ const Signup = () => {
 
     try {
       axios
-        .post("https://project-backend-hosting.vercel.app/user/create", signupform)
+        .post(
+          "https://project-backend-hosting.onrender.com/user/create",
+          signupform
+        )
         .then((res) => {
           alert("Sign Up Success");
           navigate("/login");
@@ -67,7 +70,7 @@ const Signup = () => {
       <NavbarUser />
       <Box
         onKeyDown={(e) => {
-          if (e.key === 'Enter') {
+          if (e.key === "Enter") {
             signupfunction();
           }
         }}

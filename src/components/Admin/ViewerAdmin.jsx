@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import NavbarAdmin from "../navbars/NavbarAdmin";
 import axiosInstance from "../../axiosInterceptor";
 import { Card, CardContent, Typography, Button } from "@mui/material";
@@ -9,23 +9,22 @@ const ViewerAdmin = () => {
   const [viewers, setViewers] = useState([]);
 
   const navigate = useNavigate();
-useEffect(() => {
-      const handlePopState = () => {
-        navigate("/login");
-        sessionStorage.clear();
-       
-      };
-      window.addEventListener('popstate', handlePopState);
-  
-      return () => {
-        window.removeEventListener('popstate', handlePopState);
-      };
-    }, []);
+  useEffect(() => {
+    const handlePopState = () => {
+      navigate("/login");
+      sessionStorage.clear();
+    };
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, []);
 
   useEffect(() => {
     const fetchViewers = async () => {
       const response = await axiosInstance.get(
-        "https://project-backend-hosting.vercel.app/Viewer/viewers"
+        "https://project-backend-hosting.onrender.com/Viewer/viewers"
       );
       setViewers(response.data);
     };
@@ -34,7 +33,9 @@ useEffect(() => {
 
   const handleBlockViewer = async (id) => {
     try {
-      await axiosInstance.put(`https://project-backend-hosting.vercel.app/Admin/user/${id}/block`);
+      await axiosInstance.put(
+        `https://project-backend-hosting.onrender.com/Admin/user/${id}/block`
+      );
       setViewers(
         viewers.map((Viewer) =>
           Viewer._id === id
@@ -49,14 +50,14 @@ useEffect(() => {
 
   const handleDeleteViewer = async (id) => {
     try {
-      await axiosInstance.delete(`https://project-backend-hosting.vercel.app/Admin/user/${id}`);
-      setViewers(viewers.filter(viewer => viewer._id !== id));
+      await axiosInstance.delete(
+        `https://project-backend-hosting.onrender.com/Admin/user/${id}`
+      );
+      setViewers(viewers.filter((viewer) => viewer._id !== id));
     } catch (error) {
       console.error("Error deleting viewer:", error);
     }
   };
-
-
 
   return (
     <>
@@ -88,7 +89,11 @@ useEffect(() => {
                 >
                   {Viewer.blocked === "yes" ? "Unblock" : "Block"}
                 </Button>
-                <Button size="small" className="btn btn-danger" onClick={() => handleDeleteViewer(Viewer._id)}>
+                <Button
+                  size="small"
+                  className="btn btn-danger"
+                  onClick={() => handleDeleteViewer(Viewer._id)}
+                >
                   Delete
                 </Button>
               </Card>

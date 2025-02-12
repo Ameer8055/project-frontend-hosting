@@ -20,7 +20,7 @@ const EditvideoPage = () => {
     const fetchVideoDetails = async () => {
       try {
         const response = await axiosInstance.get(
-          `https://project-backend-hosting.vercel.app/Video/videos/${videoId}`
+          `https://project-backend-hosting.onrender.com/Video/videos/${videoId}`
         );
         const video = response.data;
         setTitle(video.title);
@@ -53,15 +53,15 @@ const EditvideoPage = () => {
     e.preventDefault();
     setIsUpdating(true);
     setUpdateComplete(false);
-  
+
     let imageUrl = null;
-  
+
     // If a new image is selected, upload it to Cloudinary
     if (thumbnail) {
       const formData = new FormData();
       formData.append("file", thumbnail);
       formData.append("upload_preset", "ml_default"); // Replace with your Cloudinary preset
-  
+
       try {
         const uploadResponse = await axios.post(
           "https://api.cloudinary.com/v1_1/dm7vs9vln/image/upload",
@@ -75,7 +75,7 @@ const EditvideoPage = () => {
         return;
       }
     }
-  
+
     // Prepare the updated video data
     const updatedData = {
       title,
@@ -84,12 +84,12 @@ const EditvideoPage = () => {
       director,
       releaseYear,
       price,
-      ...(imageUrl && { thumbnailUrl: imageUrl }) // Only add thumbnail if a new image was uploaded
+      ...(imageUrl && { thumbnailUrl: imageUrl }), // Only add thumbnail if a new image was uploaded
     };
-  
+
     try {
       await axiosInstance.patch(
-        `https://project-backend-hosting.vercel.app/Creator/update/${videoId}`,
+        `https://project-backend-hosting.onrender.com/Creator/update/${videoId}`,
         updatedData
       );
       setUpdateComplete(true);
@@ -101,7 +101,6 @@ const EditvideoPage = () => {
       setIsUpdating(false);
     }
   };
-  
 
   return (
     <>

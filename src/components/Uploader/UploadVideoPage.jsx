@@ -45,7 +45,7 @@ const UploadVideoPage = () => {
 
     try {
       const response = await axiosInstance.post(
-        "https://project-backend-hosting.vercel.app/Video/upload",
+        "https://project-backend-hosting.onrender.com/Video/upload",
         formData,
         {
           headers: {
@@ -188,9 +188,7 @@ const UploadVideoPage = () => {
             </div>
 
             <div>
-              <label
-                className="block text-sm font-medium mb-1 text-white"
-              >
+              <label className="block text-sm font-medium mb-1 text-white">
                 Thumbnail
               </label>
               <input

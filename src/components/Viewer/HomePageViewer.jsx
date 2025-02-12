@@ -4,10 +4,10 @@ import axiosInstance from "../../axiosInterceptor";
 import "../../assets/css/homepageviewer.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
-import Modal from 'react-modal';
+import Modal from "react-modal";
 
 // Set the app element for accessibility
-Modal.setAppElement('#root'); // Adjust this based on your app's root element
+Modal.setAppElement("#root"); // Adjust this based on your app's root element
 
 const HomePageViewer = () => {
   const [videos, setVideos] = useState([]);
@@ -30,10 +30,10 @@ const HomePageViewer = () => {
       try {
         const response = await axiosInstance.get(
           searchQuery
-            ? `https://project-backend-hosting.vercel.app/Viewer/videos/name/${searchQuery}`
+            ? `https://project-backend-hosting.onrender.com/Viewer/videos/name/${searchQuery}`
             : selectedGenre
-            ? `https://project-backend-hosting.vercel.app/Viewer/videos/${selectedGenre}`
-            : "https://project-backend-hosting.vercel.app/Video/videos"
+            ? `https://project-backend-hosting.onrender.com/Viewer/videos/${selectedGenre}`
+            : "https://project-backend-hosting.onrender.com/Video/videos"
         );
         setVideos(response.data);
       } catch (err) {
@@ -46,23 +46,22 @@ const HomePageViewer = () => {
   }, [selectedGenre, searchQuery]);
 
   useEffect(() => {
-      const handlePopState = () => {
-        navigate("/login");
-        sessionStorage.clear();
-       
-      };
-      window.addEventListener('popstate', handlePopState);
-  
-      return () => {
-        window.removeEventListener('popstate', handlePopState);
-      };
-    }, []);
+    const handlePopState = () => {
+      navigate("/login");
+      sessionStorage.clear();
+    };
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, []);
 
   useEffect(() => {
     const fetchContinueWatching = async () => {
       try {
         const response = await axiosInstance.get(
-          `https://project-backend-hosting.vercel.app/Playlist/continue-watching/${userId}`
+          `https://project-backend-hosting.onrender.com/Playlist/continue-watching/${userId}`
         );
         setContinueWatching(response.data);
       } catch (err) {
@@ -81,7 +80,7 @@ const HomePageViewer = () => {
   const handleRemoveFromContinueWatching = async (videoId) => {
     try {
       await axiosInstance.delete(
-        `https://project-backend-hosting.vercel.app/Playlist/continue-watching/${videoId}`
+        `https://project-backend-hosting.onrender.com/Playlist/continue-watching/${videoId}`
       );
       setContinueWatching(
         continueWatching.filter((entry) => entry.video !== videoId)
@@ -97,8 +96,8 @@ const HomePageViewer = () => {
   };
 
   const handleVideoClick = (video) => {
-    const subscriptionStatus = user.subscription // Assuming 'subscription' is the key
-    if (video.price == 'paid' && subscriptionStatus === 'free') {
+    const subscriptionStatus = user.subscription; // Assuming 'subscription' is the key
+    if (video.price == "paid" && subscriptionStatus === "free") {
       setModalIsOpen(true); // Show the modal instead of alert
     } else {
       navigate(`/watch/${video._id}`); // Navigate to the video page if conditions are met
@@ -114,7 +113,10 @@ const HomePageViewer = () => {
             <h6 className="text-2xl font-bold text-white">Continue Watching</h6>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {continueWatching.map((entry) => (
-                <div className="griditem bg-transparent rounded-lg shadow-lg" key={entry._id}>
+                <div
+                  className="griditem bg-transparent rounded-lg shadow-lg"
+                  key={entry._id}
+                >
                   <Link to={`/watch/${entry.video}?time=${entry.progress}`}>
                     <img
                       src={`${entry.thumbnailUrl}`}
@@ -128,7 +130,9 @@ const HomePageViewer = () => {
                     </h3>
                     <Button
                       className="button-remove text-white"
-                      onClick={() => handleRemoveFromContinueWatching(entry._id)}
+                      onClick={() =>
+                        handleRemoveFromContinueWatching(entry._id)
+                      }
                     >
                       Remove
                     </Button>
@@ -146,7 +150,11 @@ const HomePageViewer = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {videos.map((video) => (
-              <div className="griditem shadow-lg" key={video._id} onClick={() => handleVideoClick(video)}>
+              <div
+                className="griditem shadow-lg"
+                key={video._id}
+                onClick={() => handleVideoClick(video)}
+              >
                 <img
                   src={video.thumbnailUrl}
                   alt={video.title}
@@ -164,9 +172,17 @@ const HomePageViewer = () => {
       </div>
 
       {/* Modal JSX */}
-      <Modal isOpen={modalIsOpen} onRequestClose={closeModal} className=' text-center'>
-        <h3 className="text-black fs-2" style={{marginTop:"250px"}}>You should be a subscriber to access the movie</h3>
-        <button onClick={closeModal} className="text-danger">Close</button>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        className=" text-center"
+      >
+        <h3 className="text-black fs-2" style={{ marginTop: "250px" }}>
+          You should be a subscriber to access the movie
+        </h3>
+        <button onClick={closeModal} className="text-danger">
+          Close
+        </button>
       </Modal>
     </div>
   );

@@ -13,7 +13,7 @@ const HomePageUploader = () => {
     const fetchvideo = async () => {
       try {
         const response = await axiosInstance(
-          `https://project-backend-hosting.vercel.app/Creator/uploader/${uploaderId}/videos`
+          `https://project-backend-hosting.onrender.com/Creator/uploader/${uploaderId}/videos`
         );
         const videos = response.data;
         setVideos(videos);
@@ -26,28 +26,29 @@ const HomePageUploader = () => {
 
   const handleDelete = async (videoId) => {
     try {
-      await axiosInstance.delete(`http://localhost:3000/Creator/video/${videoId}`);
-      setVideos(videos.filter(video => video._id !== videoId));
+      await axiosInstance.delete(
+        `http://localhost:3000/Creator/video/${videoId}`
+      );
+      setVideos(videos.filter((video) => video._id !== videoId));
     } catch (error) {
       console.error("Error deleting video:", error);
     }
   };
 
   const handleUpdate = (videoId) => {
-    navigate(`/editvideo`,{state:{videoId : videoId}});
+    navigate(`/editvideo`, { state: { videoId: videoId } });
   };
- useEffect(() => {
-      const handlePopState = () => {
-        navigate("/login");
-        sessionStorage.clear();
-       
-      };
-      window.addEventListener('popstate', handlePopState);
-  
-      return () => {
-        window.removeEventListener('popstate', handlePopState);
-      };
-    }, []);
+  useEffect(() => {
+    const handlePopState = () => {
+      navigate("/login");
+      sessionStorage.clear();
+    };
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, []);
   return (
     <>
       <NavbarUploader />

@@ -11,7 +11,7 @@ const UploaderVideos = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       const response = await axiosInstance.get(
-        `https://project-backend-hosting.vercel.app/Creator/uploader/${uploaderId}/videos`
+        `https://project-backend-hosting.onrender.com/Creator/uploader/${uploaderId}/videos`
       );
       setVideos(response.data);
     };
@@ -21,7 +21,7 @@ const UploaderVideos = () => {
   const handleDelete = async (videoId) => {
     try {
       await axiosInstance.delete(
-        `https://project-backend-hosting.vercel.app/Creator/video/${videoId}`
+        `https://project-backend-hosting.onrender.com/Creator/video/${videoId}`
       );
       setVideos(videos.filter((video) => video._id !== videoId));
     } catch (error) {
@@ -31,18 +31,27 @@ const UploaderVideos = () => {
 
   return (
     <div>
-      <div className='d-flex justify-content-between'>
-        <div className='d-flex ms-3 mt-2'>
-        <img src="/Images/video-editing-app.png" alt="" style={{width:'50px'}} className='mt-2 me-3' />
-      <Typography variant="h6" sx={{ flexGrow: 1 }} className="mt-3 text-white">
-              CINESTREAM
-            </Typography>
+      <div className="d-flex justify-content-between">
+        <div className="d-flex ms-3 mt-2">
+          <img
+            src="/Images/video-editing-app.png"
+            alt=""
+            style={{ width: "50px" }}
+            className="mt-2 me-3"
+          />
+          <Typography
+            variant="h6"
+            sx={{ flexGrow: 1 }}
+            className="mt-3 text-white"
+          >
+            CINESTREAM
+          </Typography>
         </div>
         <Link to={"/uploaderdetails"}>
-        <p className="text-end me-4 fs-5 mt-4">GO BACK</p>
-      </Link>
+          <p className="text-end me-4 fs-5 mt-4">GO BACK</p>
+        </Link>
       </div>
-     
+
       <h1 className="text-center text-white fs-3 mt-5">Uploaded Videos</h1>
       <div className="container mt-5 d-flex flex-wrap justify-content-center align-items-stretch">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -64,7 +73,7 @@ const UploaderVideos = () => {
                 </div>
               </Link>
               <Button
-              className="hover:bg-red-700 text-white font-bold py-2 d-flex mx-auto"
+                className="hover:bg-red-700 text-white font-bold py-2 d-flex mx-auto"
                 onClick={() => handleDelete(video._id)}
               >
                 Delete
