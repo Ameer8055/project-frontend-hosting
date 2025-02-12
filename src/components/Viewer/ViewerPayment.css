@@ -1,0 +1,18 @@
+/* ViewerPayment.css */
+.payment-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    max-width: 400px; /* Set a max width for the card */
+    width: 100%; /* Make the card take full width on smaller screens */
+}
+
+@media (max-width: 600px) {
+    .payment-card {
+        padding: 15px;
+        margin: 5px;
+    }
+}

@@ -1,0 +1,39 @@
+body {
+    background-image: url("/Images/wallpaperflare.com_wallpaper(5).jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.home-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.homepage{
+    max-height: 100vh;
+}
+
+h2 {
+    font-family: "Playwrite IN", serif;
+    width: 400px;
+    margin-top: 150px;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #4A4A4A;
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    color: #03c03c;
+}
+
+.feature-item {
+    margin: 0 20px;
+    text-align: left;
+}

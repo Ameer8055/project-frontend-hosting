@@ -1,0 +1,13 @@
+.griditem:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+
+}
+
+.button-remove {
+  transition: background-color 0.3s ease;
+}
+
+.button-remove:hover {
+  background-color: red; /* Red background on hover */
+}
