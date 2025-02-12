@@ -11,7 +11,7 @@ const UploaderVideos = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       const response = await axiosInstance.get(
-        `http://localhost:3000/Creator/uploader/${uploaderId}/videos`
+        `https://project-backend-hosting.vercel.app/Creator/uploader/${uploaderId}/videos`
       );
       setVideos(response.data);
     };
@@ -21,7 +21,7 @@ const UploaderVideos = () => {
   const handleDelete = async (videoId) => {
     try {
       await axiosInstance.delete(
-        `http://localhost:3000/Creator/video/${videoId}`
+        `https://project-backend-hosting.vercel.app/Creator/video/${videoId}`
       );
       setVideos(videos.filter((video) => video._id !== videoId));
     } catch (error) {

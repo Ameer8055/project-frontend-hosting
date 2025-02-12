@@ -30,10 +30,10 @@ const HomePageViewer = () => {
       try {
         const response = await axiosInstance.get(
           searchQuery
-            ? `http://localhost:3000/Viewer/videos/name/${searchQuery}`
+            ? `https://project-backend-hosting.vercel.app/Viewer/videos/name/${searchQuery}`
             : selectedGenre
-            ? `http://localhost:3000/Viewer/videos/${selectedGenre}`
-            : "http://localhost:3000/Video/videos"
+            ? `https://project-backend-hosting.vercel.app/Viewer/videos/${selectedGenre}`
+            : "https://project-backend-hosting.vercel.app/Video/videos"
         );
         setVideos(response.data);
       } catch (err) {
@@ -62,7 +62,7 @@ const HomePageViewer = () => {
     const fetchContinueWatching = async () => {
       try {
         const response = await axiosInstance.get(
-          `http://localhost:3000/Playlist/continue-watching/${userId}`
+          `https://project-backend-hosting.vercel.app/Playlist/continue-watching/${userId}`
         );
         setContinueWatching(response.data);
       } catch (err) {
@@ -81,7 +81,7 @@ const HomePageViewer = () => {
   const handleRemoveFromContinueWatching = async (videoId) => {
     try {
       await axiosInstance.delete(
-        `http://localhost:3000/Playlist/continue-watching/${videoId}`
+        `https://project-backend-hosting.vercel.app/Playlist/continue-watching/${videoId}`
       );
       setContinueWatching(
         continueWatching.filter((entry) => entry.video !== videoId)

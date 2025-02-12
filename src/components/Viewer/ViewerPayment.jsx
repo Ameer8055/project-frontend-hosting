@@ -12,7 +12,7 @@ const ViewerPayment = () => {
         const userId=user._id;
         try {
             // Create an order
-            const { data } = await axiosInstance.post("http://localhost:3000/Payment/create-order", { amount: 100, userId });
+            const { data } = await axiosInstance.post("https://project-backend-hosting.vercel.app/Payment/create-order", { amount: 100, userId });
 
             const options = {
                 key:'rzp_test_gcno01jWHPtXTK',
@@ -24,9 +24,9 @@ const ViewerPayment = () => {
                 handler: async function (response) {
                     console.log(response)
                     // Verify Payment
-                    const verifyRes = await axiosInstance.post("http://localhost:3000/Payment/paymentVerification", response);
+                    const verifyRes = await axiosInstance.post("https://project-backend-hosting.vercel.app/Payment/paymentVerification", response);
                     if (verifyRes.data.success) {
-                        const update = await axiosInstance.put(`http://localhost:3000/user/update-subscription/${userId}`,{subscription:'premium'})
+                        const update = await axiosInstance.put(`https://project-backend-hosting.vercel.app/user/update-subscription/${userId}`,{subscription:'premium'})
                         user.subscription = 'premium'
                         sessionStorage.setItem('user', JSON.stringify(user));
                         navigate('/viewerhome')

@@ -25,7 +25,7 @@ useEffect(() => {
   useEffect(() => {
     const fetchViewers = async () => {
       const response = await axiosInstance.get(
-        "http://localhost:3000/Viewer/viewers"
+        "https://project-backend-hosting.vercel.app/Viewer/viewers"
       );
       setViewers(response.data);
     };
@@ -34,7 +34,7 @@ useEffect(() => {
 
   const handleBlockViewer = async (id) => {
     try {
-      await axiosInstance.put(`http://localhost:3000/Admin/user/${id}/block`);
+      await axiosInstance.put(`https://project-backend-hosting.vercel.app/Admin/user/${id}/block`);
       setViewers(
         viewers.map((Viewer) =>
           Viewer._id === id
@@ -49,7 +49,7 @@ useEffect(() => {
 
   const handleDeleteViewer = async (id) => {
     try {
-      await axiosInstance.delete(`http://localhost:3000/Admin/user/${id}`);
+      await axiosInstance.delete(`https://project-backend-hosting.vercel.app/Admin/user/${id}`);
       setViewers(viewers.filter(viewer => viewer._id !== id));
     } catch (error) {
       console.error("Error deleting viewer:", error);

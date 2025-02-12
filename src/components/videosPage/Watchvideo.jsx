@@ -18,7 +18,7 @@ const Watchvideo = () => {
   useEffect(() => {
     const fetchVideo = async () => {
       try {
-        const response = await axiosInstance.get(`http://localhost:3000/Video/videos/${id}`);
+        const response = await axiosInstance.get(`https://project-backend-hosting.vercel.app/Video/videos/${id}`);
         setVideo(response.data);
       } catch (err) {
         console.error("Error fetching video:", err);
@@ -32,7 +32,7 @@ const Watchvideo = () => {
   const handleProgress = async () => {
     const currentTime = videoRef.current.currentTime; // Get current playback time
     try {
-      await axiosInstance.post('http://localhost:3000/Playlist/continue-watching', {
+      await axiosInstance.post('https://project-backend-hosting.vercel.app/Playlist/continue-watching', {
         title : video.title,
         thumbnailUrl : video.thumbnailUrl,
         user:userId,

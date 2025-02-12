@@ -10,7 +10,7 @@ const AdminWatchVideo = () => {
 
   useEffect(() => {
     const fetchVideo = async () => {
-      const response = await axiosInstance.get(`http://localhost:3000/Video/videos/${id}`);
+      const response = await axiosInstance.get(`https://project-backend-hosting.vercel.app/Video/videos/${id}`);
       setVideo(response.data);
     };
     fetchVideo();

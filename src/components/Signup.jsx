@@ -49,7 +49,7 @@ const Signup = () => {
 
     try {
       axios
-        .post("http://localhost:3000/user/create", signupform)
+        .post("https://project-backend-hosting.vercel.app/user/create", signupform)
         .then((res) => {
           alert("Sign Up Success");
           navigate("/login");

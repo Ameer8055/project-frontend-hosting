@@ -20,7 +20,7 @@ const EditvideoPage = () => {
     const fetchVideoDetails = async () => {
       try {
         const response = await axiosInstance.get(
-          `http://localhost:3000/Video/videos/${videoId}`
+          `https://project-backend-hosting.vercel.app/Video/videos/${videoId}`
         );
         const video = response.data;
         setTitle(video.title);
@@ -89,7 +89,7 @@ const EditvideoPage = () => {
   
     try {
       await axiosInstance.patch(
-        `http://localhost:3000/Creator/update/${videoId}`,
+        `https://project-backend-hosting.vercel.app/Creator/update/${videoId}`,
         updatedData
       );
       setUpdateComplete(true);

@@ -12,7 +12,7 @@ const UploadersAdmin = () => {
   useEffect(() => {
     const fetchUploader = async () => {
       const response = await axiosInstance.get(
-        "http://localhost:3000/Creator/uploaders"
+        "https://project-backend-hosting.vercel.app/Creator/uploaders"
       );
       setUploaders(response.data);
     };
@@ -21,7 +21,7 @@ const UploadersAdmin = () => {
 
   const handleBlockUploader = async (id) => {
     try {
-      await axiosInstance.put(`http://localhost:3000/Admin/user/${id}/block`);
+      await axiosInstance.put(`https://project-backend-hosting.vercel.app/Admin/user/${id}/block`);
       setUploaders(
         uploaders.map((uploader) =>
           uploader._id === id
@@ -39,7 +39,7 @@ const UploadersAdmin = () => {
 
   const handleDeleteUploader = async (id) => {
     try {
-      await axiosInstance.delete(`http://localhost:3000/Admin/user/${id}`);
+      await axiosInstance.delete(`https://project-backend-hosting.vercel.app/Admin/user/${id}`);
       setUploaders(uploaders.filter((uploader) => uploader._id !== id));
     } catch (error) {
       console.error("Error deleting viewer:", error);

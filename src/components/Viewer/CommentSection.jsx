@@ -17,7 +17,7 @@ const CommentSection = () => {
 
   useEffect(() => {
     const fetchComments = async () => {
-      const response = await axiosInstance.get(`http://localhost:3000/Comment/comments/${id}`); // Adjust the endpoint as necessary
+      const response = await axiosInstance.get(`https://project-backend-hosting.vercel.app/Comment/comments/${id}`); // Adjust the endpoint as necessary
       setComments(response.data);
     };
     fetchComments();
@@ -27,14 +27,14 @@ const CommentSection = () => {
     e.preventDefault();
     if (!newComment) return;
 
-    const response = await axiosInstance.post(`http://localhost:3000/Comment/comments`, { text: newComment, movieId: id, userId: userId, userName: userName }); // Adjust the endpoint as necessary
+    const response = await axiosInstance.post(`https://project-backend-hosting.vercel.app/Comment/comments`, { text: newComment, movieId: id, userId: userId, userName: userName }); // Adjust the endpoint as necessary
     setComments([...comments, response.data]);
     setNewComment('');
   };
 
   const updateComment = async (commentId, updatedContent) => {
     try {
-      const response = await axiosInstance.put(`http://localhost:3000/Comment/comments/${commentId}`, {
+      const response = await axiosInstance.put(`https://project-backend-hosting.vercel.app/Comment/comments/${commentId}`, {
         text: updatedContent
       });
 
@@ -54,7 +54,7 @@ const CommentSection = () => {
 
   const deleteComment = async (commentId) => {
     try {
-      const response = await axiosInstance.delete(`http://localhost:3000/Comment/comments/${commentId}`);
+      const response = await axiosInstance.delete(`https://project-backend-hosting.vercel.app/Comment/comments/${commentId}`);
       if (response.status === 200) {
         setComments(prevComments => prevComments.filter(comment => comment._id !== commentId));
       }

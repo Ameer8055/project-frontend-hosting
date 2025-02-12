@@ -14,7 +14,7 @@ const WatchVideoUploader = () => {
   useEffect(() => {
     const fetchVideo = async () => {
       try {
-        const response = await axiosInstance.get(`http://localhost:3000/Video/videos/${id}`);
+        const response = await axiosInstance.get(`https://project-backend-hosting.vercel.app/Video/videos/${id}`);
         setVideo(response.data);
       } catch (err) {
         console.error("Error fetching video:", err);

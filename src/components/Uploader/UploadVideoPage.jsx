@@ -45,7 +45,7 @@ const UploadVideoPage = () => {
 
     try {
       const response = await axiosInstance.post(
-        "http://localhost:3000/Video/upload",
+        "https://project-backend-hosting.vercel.app/Video/upload",
         formData,
         {
           headers: {

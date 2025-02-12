@@ -13,7 +13,7 @@ const HomePageUploader = () => {
     const fetchvideo = async () => {
       try {
         const response = await axiosInstance(
-          `http://localhost:3000/Creator/uploader/${uploaderId}/videos`
+          `https://project-backend-hosting.vercel.app/Creator/uploader/${uploaderId}/videos`
         );
         const videos = response.data;
         setVideos(videos);
