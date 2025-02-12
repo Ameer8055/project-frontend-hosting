@@ -68,7 +68,7 @@ const UploadVideoPage = () => {
   return (
     <>
       <NavbarUploader />
-      <div className="p-6 ms-3 me-3 max-w-lg mx-auto bg-dark mt-4 rounded-3 ">
+      <div className="p-6 sm-ms-2 max-w-lg min-w-md mx-auto bg-dark mt-5 rounded-3 ">
         <h4 className="text-xl font-semibold mb-4 mt-3 text-white fs-2 text-center">
           Upload Movie Details
         </h4>
