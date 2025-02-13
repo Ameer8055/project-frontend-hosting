@@ -27,7 +27,7 @@ const EditvideoPage = () => {
         setDescription(video.description);
         setGenre(video.genre);
         setDirector(video.director);
-        setReleaseYear(video.year);
+        setyear(video.year);
       } catch (error) {
         console.error("Error fetching video details:", error);
         setErrorMessage("Failed to fetch video details.");
@@ -40,7 +40,7 @@ const EditvideoPage = () => {
   const [description, setDescription] = useState("");
   const [genre, setGenre] = useState("");
   const [director, setDirector] = useState("");
-  const [releaseYear, setReleaseYear] = useState("");
+  const [year, setyear] = useState("");
   const [price, setPrice] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [isUpdating, setIsUpdating] = useState(false); // updating state
@@ -82,7 +82,7 @@ const EditvideoPage = () => {
       description,
       genre,
       director,
-      releaseYear,
+      year,
       price,
       ...(imageUrl && { thumbnailUrl: imageUrl }), // Only add thumbnail if a new image was uploaded
     };
@@ -208,19 +208,19 @@ const EditvideoPage = () => {
             <div>
               <label
                 className="block text-sm font-medium mb-1 text-white"
-                htmlFor="releaseYear"
+                htmlFor="year"
               >
                 Year of Release
               </label>
               <input
                 type="number"
-                id="releaseYear"
-                name="releaseYear"
+                id="year"
+                name="year"
                 className="w-full p-2 border rounded-md"
                 placeholder="Enter year of release"
-                value={releaseYear}
+                value={year}
                 onChange={(e) => {
-                  setReleaseYear(e.target.value);
+                  setyear(e.target.value);
                 }}
                 required
               />
