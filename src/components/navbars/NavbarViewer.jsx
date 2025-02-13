@@ -104,6 +104,10 @@ const NavbarViewer = ({ onGenreChange, onSearch }) => {
               color: "white",
               marginRight: 1,
               backgroundColor: "rgba(0, 0, 0, 0.7)",
+              whiteSpace:"nowrap",
+              overflow:"hidden",
+              fontSize:"10px",
+              padding:"10px 5px",
             }}
             onClick={() => {
               window.location.reload();
