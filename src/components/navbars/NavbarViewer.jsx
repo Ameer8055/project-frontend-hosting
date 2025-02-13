@@ -78,8 +78,7 @@ const NavbarViewer = ({ onGenreChange, onSearch }) => {
         style={{
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent overlay
-          backdropFilter: "blur(5px)", // Adds a blur effect
+          backgroundColor: "transparent"
         }}
       >
         <Toolbar>
