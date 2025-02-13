@@ -27,7 +27,7 @@ const HomePageUploader = () => {
   const handleDelete = async (videoId) => {
     try {
       await axiosInstance.delete(
-        `http://localhost:3000/Creator/video/${videoId}`
+        `https://project-backend-hosting.onrender.com/Creator/video/${videoId}`
       );
       setVideos(videos.filter((video) => video._id !== videoId));
     } catch (error) {
