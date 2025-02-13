@@ -98,9 +98,9 @@ const HomePageViewer = () => {
   const handleVideoClick = (video) => {
     const subscriptionStatus = user.subscription; 
     if (video.price == "paid" && subscriptionStatus === "free") {
-      setModalIsOpen(true); // Show the modal instead of alert
+      setModalIsOpen(true); // Show the modal 
     } else {
-      navigate(`/watch/${video._id}`); // Navigate to the video page if conditions are met
+      navigate(`/watch/${video._id}`); // Navigate to the video page 
     }
   };
 
@@ -171,7 +171,7 @@ const HomePageViewer = () => {
         )}
       </div>
 
-      {/* Modal JSX */}
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
