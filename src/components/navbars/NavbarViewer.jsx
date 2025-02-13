@@ -246,7 +246,7 @@ const NavbarViewer = ({ onGenreChange, onSearch }) => {
             </Link>
           </Hidden>
           <Hidden mdUp>
-            <IconButton edge="start" color="inherit" onClick={toggleDrawer}>
+            <IconButton edge="start" color="inherit" style={{backgroundColor:"rgba(0, 0, 0, 0.5)"}} onClick={toggleDrawer}>
               <MenuIcon />
             </IconButton>
           </Hidden>
