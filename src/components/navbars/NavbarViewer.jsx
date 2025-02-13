@@ -78,7 +78,8 @@ const NavbarViewer = ({ onGenreChange, onSearch }) => {
         style={{
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundColor: "transparent"
+          backgroundColor: "rgba(0, 0, 0, 0.5)", 
+          backdropFilter: "blur(5px)", 
         }}
       >
         <Toolbar>
