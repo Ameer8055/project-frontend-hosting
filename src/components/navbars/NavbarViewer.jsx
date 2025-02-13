@@ -83,6 +83,11 @@ const NavbarViewer = ({ onGenreChange, onSearch }) => {
         }}
       >
         <Toolbar>
+          <Hidden mdUp>
+            <IconButton edge="start" color="inherit" onClick={toggleDrawer}>
+              <MenuIcon />
+            </IconButton>
+          </Hidden>
           <img
             src="/Images/video-editing-app.png"
             alt="Logo"
@@ -245,11 +250,6 @@ const NavbarViewer = ({ onGenreChange, onSearch }) => {
               </Button>
             </Link>
           </Hidden>
-          <Hidden mdUp>
-            <IconButton edge="start" color="inherit" onClick={toggleDrawer}>
-              <MenuIcon />
-            </IconButton>
-          </Hidden>
         </Toolbar>
       </AppBar>
 
@@ -258,8 +258,8 @@ const NavbarViewer = ({ onGenreChange, onSearch }) => {
         <List>
           {!isPremium && (
             <ListItem button component={Link} to={"/viewerpayment"}>
-            <ListItemText primary="Premium" />
-          </ListItem>
+              <ListItemText primary="Premium" />
+            </ListItem>
           )}
           <ListItem
             button

@@ -96,7 +96,7 @@ const HomePageViewer = () => {
   };
 
   const handleVideoClick = (video) => {
-    const subscriptionStatus = user.subscription; // Assuming 'subscription' is the key
+    const subscriptionStatus = user.subscription; 
     if (video.price == "paid" && subscriptionStatus === "free") {
       setModalIsOpen(true); // Show the modal instead of alert
     } else {
