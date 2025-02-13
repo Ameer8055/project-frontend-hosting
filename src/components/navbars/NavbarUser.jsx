@@ -35,11 +35,11 @@ const NavbarUser = () => {
             <IconButton edge="end" color="inherit" onClick={toggleDrawer}>
               <span className="material-icons w-25"><img src="https://img.icons8.com/?size=100&id=dMz54mFbVirR&format=png&color=000000" alt="icon" /></span>
             </IconButton>
-            <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer}>
+            <Drawer anchor="top" open={drawerOpen} onClose={toggleDrawer}>
               {drawer}
             </Drawer>
           </Hidden>
-          <Hidden mdDown>
+          <Hidden mdDown >
             <Link to={'/'}><Button color="inherit">Home</Button></Link>
             <Link to={'/login'}><Button color="inherit">Login</Button></Link>
             <Link to={'/signup'}><Button color="inherit">Signup</Button></Link>
