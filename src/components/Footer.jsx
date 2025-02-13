@@ -10,6 +10,7 @@ const Footer = () => {
       color: "#fff",
       py: 4,
       mt: 5,
+      margin:0,
     }}
   >
     <Container maxWidth="lg" >
