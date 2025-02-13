@@ -104,10 +104,10 @@ const NavbarViewer = ({ onGenreChange, onSearch }) => {
               color: "white",
               marginRight: 1,
               backgroundColor: "rgba(0, 0, 0, 0.7)",
-              whiteSpace:"nowrap",
-              overflow:"hidden",
-              fontSize:"10px",
-              padding:"10px 5px",
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              fontSize: "10px",
+              padding: "10px 5px",
             }}
             onClick={() => {
               window.location.reload();
@@ -126,6 +126,8 @@ const NavbarViewer = ({ onGenreChange, onSearch }) => {
                 color: "white",
                 marginRight: 2,
                 backgroundColor: "rgba(0, 0, 0, 0.7)",
+                fontSize: "12px",
+                padding: "8px 5px",
               }}
             >
               GENRE
@@ -254,9 +256,11 @@ const NavbarViewer = ({ onGenreChange, onSearch }) => {
       {/* Drawer for small screens */}
       <Drawer anchor="top" open={drawerOpen} onClose={toggleDrawer}>
         <List>
-          <ListItem button component={Link} to={"/viewerpayment"}>
+          {!isPremium && (
+            <ListItem button component={Link} to={"/viewerpayment"}>
             <ListItemText primary="Premium" />
           </ListItem>
+          )}
           <ListItem
             button
             component={Link}
