@@ -47,7 +47,7 @@ const WatchVideoUploader = () => {
           src={video.videoUrl}
           className="w-full h-auto rounded-lg shadow-lg"
         />
-        <p className="text-success mt-4">{video.description}</p>
+        <p className="text-success bg-dark p-2 rounded-2 mt-4">{video.description}</p>
         <p className="text-blue-400 mt-2 text-uppercase">{video.genre}</p>
         <CommentForUploader />
       </div>

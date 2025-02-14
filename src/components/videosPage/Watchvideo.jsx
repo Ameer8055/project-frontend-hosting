@@ -83,7 +83,7 @@ const Watchvideo = () => {
             onPause={handlePause}
             onDragEndCapture={handlePause}
           />
-          <p className="text-success mt-4">{video.description}</p>
+          <p className="text-success bg-dark p-2 rounded-2 mt-4">{video.description}</p>
           <p className="text-blue-400 mt-2 text-uppercase">{video.genre}</p>
         </div>
         <div className="p-3 max-w-6xl mx-auto">
