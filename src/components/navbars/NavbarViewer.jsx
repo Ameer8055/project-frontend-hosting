@@ -18,6 +18,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
+import { BiCrown, BiSolidCrown } from 'react-icons/bi';
 import { LogOutIcon } from "lucide-react";
 
 const NavbarViewer = ({ onGenreChange, onSearch }) => {
@@ -213,6 +214,9 @@ const NavbarViewer = ({ onGenreChange, onSearch }) => {
             >
               <SearchIcon />
             </Button>
+            {isPremium && (
+            <BiSolidCrown />
+            )}
 
             {/* Premium button visible only on larger screens */}
             {!isPremium && (
