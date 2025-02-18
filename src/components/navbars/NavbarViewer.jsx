@@ -105,7 +105,7 @@ const NavbarViewer = ({ onGenreChange, onSearch }) => {
           </Typography>
 
           {isPremium && (
-            <BiSolidCrown color="#FFD700"/>
+            <BiSolidCrown color="#FFD700" size={20} style={{marginRight:"8px"}}/>
             )}
 
           <Button
