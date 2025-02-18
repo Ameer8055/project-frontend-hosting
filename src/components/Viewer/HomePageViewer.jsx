@@ -162,7 +162,7 @@ const HomePageViewer = () => {
                 />
                 <div className="p-4 text-center">
                   <h3 className="text-xl font-semibold text-white">
-                    {video.title}
+                    {video.title}<br/>
                     {video.price}
                   </h3>
                 </div>
