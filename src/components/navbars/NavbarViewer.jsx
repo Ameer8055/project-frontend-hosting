@@ -104,6 +104,10 @@ const NavbarViewer = ({ onGenreChange, onSearch }) => {
             CINESTREAM
           </Typography>
 
+          {isPremium && (
+            <BiSolidCrown color="#FFD700"/>
+            )}
+
           <Button
             className="me-2"
             sx={{
@@ -214,9 +218,7 @@ const NavbarViewer = ({ onGenreChange, onSearch }) => {
             >
               <SearchIcon />
             </Button>
-            {isPremium && (
-            <BiSolidCrown />
-            )}
+
 
             {/* Premium button visible only on larger screens */}
             {!isPremium && (
